@@ -1,0 +1,27 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+            "name": "(gdb) Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/push_swap",
+            "args": [
+				"5", "4", "3", "2", "1", "0", "50", "40", "30", "20", "10", "990", "1578", "1458", "12223", "5212", "18581", "10282", "25", "24", "33", "32", "31", "80", "55", "64", "63", "62", "9991", "100", "255", "425", "363", "236", "169", "690"
+			],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+			"preLaunchTask": "build"
+        }
+	]
+}

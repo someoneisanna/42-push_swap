@@ -6,7 +6,7 @@
 /*   By: ataboada <ataboada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 17:12:27 by ataboada          #+#    #+#             */
-/*   Updated: 2023/07/19 14:17:39 by ataboada         ###   ########.fr       */
+/*   Updated: 2023/08/07 16:39:38 by ataboada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,15 @@
 
 void	ft_final_sort(t_stack **sa);
 int		ft_get_lowest_pos(t_stack **stack);
-int		ft_absolute(int n);
 
-// after the stack is mostly sorted, we will use this sort to make sure the lowest value is at the top
-// if it is in the bottom of the stack, we will reverse rotate it to the top
-// if it is in the top of the stack, we will rotate it to the top
+/*
+	after the stack is mostly sorted, we'll use this to be sure that everything is sorted
+	- first, we will get the position of the lowest number in the stack
+	- then, we will check if it is in the bottom of the stack or in the top
+	- if it is in the bottom of the stack, we will reverse rotate it to the top
+	- if it is in the top of the stack, we will rotate it to the top
+*/
+
 void	ft_final_sort(t_stack **sa)
 {
 	int	size;
@@ -44,7 +48,6 @@ void	ft_final_sort(t_stack **sa)
 	}
 }
 
-// here we will get the position of the lowest number in the stack
 int	ft_get_lowest_pos(t_stack **stack)
 {
 	t_stack	*temp;
@@ -53,7 +56,7 @@ int	ft_get_lowest_pos(t_stack **stack)
 
 	temp = *stack;
 	lowest_ind = INT_MAX;
-	ft_get_positions(stack);
+	ft_fill_pos(stack);
 	lowest_pos = temp->pos;
 	while (temp)
 	{
@@ -65,12 +68,4 @@ int	ft_get_lowest_pos(t_stack **stack)
 		temp = temp->next;
 	}
 	return (lowest_pos);
-}
-
-// here we will get the absolute value of a number
-int	ft_absolute(int n)
-{
-	if (n < 0)
-		return (n * (-1));
-	return (n);
 }

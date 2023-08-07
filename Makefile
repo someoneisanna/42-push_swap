@@ -25,6 +25,7 @@ SRCS = srcs/1_main.c \
 		srcs/5_sort_utils_0.c \
 		srcs/6_sort_utils_1.c \
 		srcs/7_sort_utils_2.c \
+		srcs/8_utils.c \
 		operations/push.c \
 		operations/reverse.c \
 		operations/rotate.c \

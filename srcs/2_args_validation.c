@@ -6,7 +6,7 @@
 /*   By: ataboada <ataboada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 17:01:32 by ataboada          #+#    #+#             */
-/*   Updated: 2023/08/07 11:57:19 by ataboada         ###   ########.fr       */
+/*   Updated: 2023/08/07 13:55:51 by ataboada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,15 @@ int		ft_is_num(char *s);
 int		ft_is_int(char *s);
 int		ft_is_dup(char **args, int i);
 
-// here we will check if the arguments are valid
-// we will check if there are only numbers, if they are int (and not longs) and if there are duplicates
+/*
+	here we check if the args are valid. we will check if:
+	1) there are at least 1 arg besides ./push_swap that is being passed
+	2) there are no characters that are not numbers
+	3) there are no characters that are not integers (and not longs)
+	4) there are no duplicates
+	note: we can't use atoi - it returns a random int if you pass overflow values
+*/
+
 void	ft_args_validation(int ac, char **av)
 {
 	int		i;
@@ -43,7 +50,6 @@ void	ft_args_validation(int ac, char **av)
 	}
 }
 
-// here we check if all args are numbers
 int	ft_is_num(char *s)
 {
 	int	i;
@@ -60,8 +66,6 @@ int	ft_is_num(char *s)
 	return (1);
 }
 
-// here we check if all args are integers (and not longs)
-// obs: we can't use atoi - it returns a random int if you pass overflow values
 int	ft_is_int(char *s)
 {
 	int		i;
@@ -86,7 +90,6 @@ int	ft_is_int(char *s)
 	return (res >= INT_MIN && res <= INT_MAX);
 }
 
-// here we check if there are duplicate args
 int	ft_is_dup(char **args, int i)
 {
 	int	j;

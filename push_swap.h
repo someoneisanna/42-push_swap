@@ -6,7 +6,7 @@
 /*   By: ataboada <ataboada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 16:24:54 by ataboada          #+#    #+#             */
-/*   Updated: 2023/08/07 11:58:20 by ataboada         ###   ########.fr       */
+/*   Updated: 2023/08/07 16:38:25 by ataboada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 # include "libft/libft.h"
 # include <stdio.h>
+
+# define MIN 0
+# define MAX 1
 
 typedef struct s_stack
 {
@@ -29,9 +32,7 @@ typedef struct s_stack
 
 // --------------------------------- 1_main.c ----------------------------------
 
-void	ft_perror(char *s, t_stack **sa, t_stack **sb, int ac, char **av);
-void	ft_free_stack(t_stack **stack);
-void	ft_free_split(char **split);
+int		main(int argc, char **argv);
 
 // ---------------------------- 2_args_validation.c ----------------------------
 
@@ -43,10 +44,10 @@ int		ft_is_dup(char **args, int i);
 // ------------------------------ 3_stack_init.c -------------------------------
 
 t_stack	*ft_fill_stack(int ac, char **av);
-t_stack	*ft_add_node(int n, int ac, char **av);
+t_stack	*ft_add_new_node(int n, int ac, char **av);
 void	ft_add_node_back(t_stack **stack, t_stack *new, int ac, char **av);
-int		ft_get_size(t_stack *stack);
-void	ft_get_index(t_stack *sa, int size);
+void	ft_fill_ind(t_stack *sa, int size);
+void	ft_fill_pos(t_stack **sa);
 
 // -------------------------------- 4_sort.c -----------------------------------
 
@@ -58,28 +59,32 @@ void	ft_sort_big(t_stack **sa, t_stack **sb);
 
 // ------------------------------ 5_sort_utils_0.c -----------------------------
 
-int		ft_get_min_max(t_stack **stack, char c);
 void	ft_leave_3(t_stack **sa, t_stack **sb);
-void	ft_calculate_best_position(t_stack **sa, t_stack **sb);
-void	ft_get_positions(t_stack **stack);
-int		ft_get_best_position(t_stack **stack, int a_pos, int a_ind, int b_ind);
+void	ft_fill_best_position(t_stack **sa, t_stack **sb);
+int		ft_find_best_position(t_stack **sa, int a_pos, int a_ind, int b_ind);
+void	ft_fill_costs(t_stack **sa, t_stack **sb);
+void	ft_find_and_do_best_move(t_stack **sa, t_stack **sb);
 
 // ------------------------------ 6_sort_utils_1.c -----------------------------
 
-
-void	ft_calculate_best_move(t_stack **sa, t_stack **sb);
-void	ft_execute_best_move(t_stack **sa, t_stack **sb);
-void	ft_call_best_functions(t_stack **sa, t_stack **sb, int cost_a, int cost_b);
-void	ft_rev_rotate_both(t_stack **sa, t_stack **sb, int *cost_a, int *cost_b);
-void	ft_rotate_both(t_stack **sa, t_stack **sb, int *cost_a, int *cost_b);
-void	ft_rotate_a(t_stack **sa, int *cost);
-void	ft_rotate_b(t_stack **sb, int *cost);
+int		ft_absolute(int n);
+void	ft_rrr_with_cost(t_stack **sa, t_stack **sb, int *cost_a, int *cost_b);
+void	ft_rr_with_cost(t_stack **sa, t_stack **sb, int *cost_a, int *cost_b);
+void	ft_ra_with_cost(t_stack **sa, int *cost);
+void	ft_rb_with_cost(t_stack **sb, int *cost);
 
 // ------------------------------ 7_sort_utils_2.c -----------------------------
 
 void	ft_final_sort(t_stack **sa);
 int		ft_get_lowest_pos(t_stack **stack);
-int		ft_absolute(int n);
+
+// --------------------------------- 8_utils.c ---------------------------------
+
+void	ft_perror(char *s, t_stack **sa, t_stack **sb, int ac, char **av);
+void	ft_free_split(char **split);
+void	ft_free_stack(t_stack **stack);
+int		ft_get_size(t_stack *stack);
+int		ft_get_min_max(t_stack **stack, int flag);
 
 // --------------------------------- OPERATIONS --------------------------------
 

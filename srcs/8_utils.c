@@ -6,27 +6,23 @@
 /*   By: ataboada <ataboada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 13:43:37 by ataboada          #+#    #+#             */
-/*   Updated: 2023/08/07 16:40:06 by ataboada         ###   ########.fr       */
+/*   Updated: 2023/08/08 17:01:39 by ataboada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ft_perror(char *s, t_stack **sa, t_stack **sb, int ac, char **av);
+void	ft_perror(char *s, int ac, char **av);
 void	ft_free_split(char **split);
 void	ft_free_stack(t_stack **stack);
 int		ft_get_size(t_stack *stack);
 int		ft_get_min_max(t_stack **stack, int flag);
 
-// this function is used to print an error message and free the stacks that had memory allocated
-void	ft_perror(char *s, t_stack **sa, t_stack **sb, int ac, char **av)
+// used to print an error message and free the stacks that had memory allocated
+void	ft_perror(char *s, int ac, char **av)
 {
 	if (ac == 2)
 		ft_free_split(av);
-	if (!sa || *sa)
-		ft_free_stack(sa);
-	if (!sb || *sb)
-		ft_free_stack(sb);
 	ft_printf(s);
 	exit(1);
 }

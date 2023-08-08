@@ -6,7 +6,7 @@
 /*   By: ataboada <ataboada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 09:59:07 by ataboada          #+#    #+#             */
-/*   Updated: 2023/08/07 15:24:50 by ataboada         ###   ########.fr       */
+/*   Updated: 2023/08/08 17:12:29 by ataboada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,23 @@ t_stack	*ft_fill_stack(int ac, char **av)
 {
 	int		i;
 	t_stack	*sa;
+	t_stack	*new;
 
 	if (ac == 2)
 		i = 0;
 	else
 		i = 1;
 	sa = NULL;
+	new = NULL;
 	while (av[i])
 	{
 		if ((ac == 2 && i == 0) || (ac != 2 && i == 1))
 			sa = ft_add_new_node(ft_atoi(av[i]), ac, av);
 		else
-			ft_add_node_back(&sa, ft_add_new_node(ft_atoi(av[i]), ac, av), ac, av);
+		{
+			new = ft_add_new_node(ft_atoi(av[i]), ac, av);
+			ft_add_node_back(&sa, new, ac, av);
+		}
 		i++;
 	}
 	return (sa);
@@ -56,7 +61,7 @@ t_stack	*ft_add_new_node(int n, int ac, char **av)
 
 	node = malloc(sizeof(t_stack));
 	if (!node)
-		ft_perror("Error\nMalloc failure in ft_add_node\n", NULL, NULL, ac, av);
+		ft_perror("Error\nMalloc failure in ft_add_node\n", ac, av);
 	node->n = n;
 	node->ind = 0;
 	node->pos = -1;
@@ -72,7 +77,7 @@ void	ft_add_node_back(t_stack **stack, t_stack *new, int ac, char **av)
 	t_stack	*last;
 
 	if (!stack)
-		ft_perror("Error\nNull pointer in ft_add_node_back\n", NULL, NULL, ac, av);
+		ft_perror("Error\nNull pointer in ft_add_node_back\n", ac, av);
 	if (!*stack)
 		*stack = new;
 	else

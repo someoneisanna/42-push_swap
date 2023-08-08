@@ -6,7 +6,7 @@
 /*   By: ataboada <ataboada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 17:12:27 by ataboada          #+#    #+#             */
-/*   Updated: 2023/08/07 16:39:38 by ataboada         ###   ########.fr       */
+/*   Updated: 2023/08/08 16:47:49 by ataboada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_final_sort(t_stack **sa);
 int		ft_get_lowest_pos(t_stack **stack);
 
 /*
-	after the stack is mostly sorted, we'll use this to be sure that everything is sorted
+	after the stack is mostly sorted, we'll use this to be sure that evth is sorted
 	- first, we will get the position of the lowest number in the stack
 	- then, we will check if it is in the bottom of the stack or in the top
 	- if it is in the bottom of the stack, we will reverse rotate it to the top

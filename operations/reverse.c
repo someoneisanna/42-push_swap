@@ -6,7 +6,7 @@
 /*   By: ataboada <ataboada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 11:50:28 by ataboada          #+#    #+#             */
-/*   Updated: 2023/07/18 12:08:40 by ataboada         ###   ########.fr       */
+/*   Updated: 2023/08/08 16:48:31 by ataboada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_rra(t_stack **sa, int p)
 {
 	t_stack	*temp;
 	t_stack	*new_last;
-	t_stack *prev_last;
+	t_stack	*prev_last;
 
 	temp = *sa;
 	new_last = *sa;
@@ -40,7 +40,7 @@ void	ft_rrb(t_stack **sb, int p)
 {
 	t_stack	*temp;
 	t_stack	*new_last;
-	t_stack *prev_last;
+	t_stack	*prev_last;
 
 	temp = *sb;
 	new_last = *sb;

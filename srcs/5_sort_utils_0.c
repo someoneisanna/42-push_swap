@@ -6,7 +6,7 @@
 /*   By: ataboada <ataboada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 11:33:12 by ataboada          #+#    #+#             */
-/*   Updated: 2023/08/07 16:25:16 by ataboada         ###   ########.fr       */
+/*   Updated: 2023/08/08 16:45:01 by ataboada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,16 @@ void	ft_find_and_do_best_move(t_stack **sa, t_stack **sb);
 		- pushes all numbers but 3 to sb
 		- for efficiency, we will push smaller values first
 	2) ft_fill_best_position:
-		- fill the a_pos variable of each element of sb (best position for sb in sa)
+		- fill the a_pos variable of each element of sb (best pos for sb in sa)
 		- we will first fill the pos variables of the stacks (ft_fill_pos)
 		- then, we will calculate the best position for each number of sb in sa
-		- we use (ft_get_best_position) to find that and then assign that value to a_pos
+		- we use (ft_get_best_position) to find that and assign that value to a_pos
 	3) ft_find_best_position:
 		- find the best position for the number in sb in sa
-		- first, we will check if the b_index can be placed between two elements in sa
+		- first, we will check if the b_index can be placed between two nbrs in sa
 		- for that, we will check if there is an element in sa with a bigger index
 		- if we don't find it, a_ind will be INT_MAX and we get the second loop
-		- in it, we will find the element with the smallest index and assign that to a_pos
+		- in it, we will find the nbr with the smallest ind and assign that to a_pos
 	4) ft_fill_costs:
 		- here we will fill the costs in the stacks
 		- cost_b is the cost of getting the number to the top of sb
@@ -79,7 +79,7 @@ void	ft_leave_3(t_stack **sa, t_stack **sb)
 void	ft_fill_best_position(t_stack **sa, t_stack **sb)
 {
 	int		a_pos;
-	t_stack *temp_b;
+	t_stack	*temp_b;
 
 	a_pos = 0;
 	temp_b = *sb;
@@ -93,7 +93,7 @@ void	ft_fill_best_position(t_stack **sa, t_stack **sb)
 	}
 }
 
-int		ft_find_best_position(t_stack **sa, int a_pos, int a_ind, int b_ind)
+int	ft_find_best_position(t_stack **sa, int a_pos, int a_ind, int b_ind)
 {
 	t_stack	*temp_a;
 
@@ -147,22 +147,22 @@ void	ft_fill_costs(t_stack **sa, t_stack **sb)
 
 void	ft_find_and_do_best_move(t_stack **sa, t_stack **sb)
 {
-	t_stack	*temp;
+	t_stack	*t;
 	int		best_a;
 	int		cost_a;
 	int		cost_b;
 
-	temp = *sb;
+	t = *sb;
 	best_a = INT_MAX;
-	while (temp)
+	while (t)
 	{
-		if (ft_absolute(temp->cost_a) + ft_absolute(temp->cost_b) < ft_absolute(best_a))
+		if (ft_abs(t->cost_a) + ft_abs(t->cost_b) < ft_abs(best_a))
 		{
-			best_a = ft_absolute(temp->cost_a) + ft_absolute(temp->cost_b);
-			cost_a = temp->cost_a;
-			cost_b = temp->cost_b;
+			best_a = ft_abs(t->cost_a) + ft_abs(t->cost_b);
+			cost_a = t->cost_a;
+			cost_b = t->cost_b;
 		}
-		temp = temp->next;
+		t = t->next;
 	}
 	if (cost_a < 0 && cost_b < 0)
 		ft_rrr_with_cost(sa, sb, &cost_a, &cost_b);

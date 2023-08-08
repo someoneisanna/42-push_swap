@@ -6,7 +6,7 @@
 /*   By: ataboada <ataboada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 17:01:32 by ataboada          #+#    #+#             */
-/*   Updated: 2023/08/07 13:55:51 by ataboada         ###   ########.fr       */
+/*   Updated: 2023/08/08 17:06:57 by ataboada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	ft_args_validation(int ac, char **av)
 	int		i;
 
 	if (ac < 2)
-		ft_perror("Error: wrong number of arguments\n", NULL, NULL, ac, av);
+		ft_perror("Error: wrong number of arguments\n", ac, av);
 	if (ac == 2)
 		i = 0;
 	else
@@ -41,11 +41,11 @@ void	ft_args_validation(int ac, char **av)
 	while (av[i])
 	{
 		if (ft_is_num(av[i]) == 0)
-			ft_perror("Error: argument has a character that is not a number\n", NULL, NULL, ac, av);
+			ft_perror("Error: arg has a character that isn't a numbr\n", ac, av);
 		if (ft_is_int(av[i]) == 0)
-			ft_perror("Error: argument has a characater that is not an integer\n", NULL, NULL, ac, av);
+			ft_perror("Error: arg has a character that isn't an int\n", ac, av);
 		if (ft_is_dup(av, i) == 0)
-			ft_perror("Error: argument has one or more duplicates\n", NULL, NULL, ac, av);
+			ft_perror("Error: arg has one or more duplicates\n", ac, av);
 		i++;
 	}
 }

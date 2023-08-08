@@ -6,13 +6,13 @@
 /*   By: ataboada <ataboada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 15:56:37 by ataboada          #+#    #+#             */
-/*   Updated: 2023/08/07 16:31:07 by ataboada         ###   ########.fr       */
+/*   Updated: 2023/08/08 16:45:21 by ataboada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int		ft_absolute(int n);
+int		ft_abs(int n);
 void	ft_rrr_with_cost(t_stack **sa, t_stack **sb, int *cost_a, int *cost_b);
 void	ft_rr_with_cost(t_stack **sa, t_stack **sb, int *cost_a, int *cost_b);
 void	ft_ra_with_cost(t_stack **sa, int *cost);
@@ -20,14 +20,14 @@ void	ft_rb_with_cost(t_stack **sb, int *cost);
 
 /*
 	here we've got the functions that are useful to find and do the best move
-	1) ft_absolute: returns the absolute value of a number
+	1) ft_abs: returns the absolute value of a number
 	2) ft_rrr_with_cost: rotates both stacks in opposite directions
 	3) ft_rr_with_cost: rotates both stacks in the same direction
 	4) ft_ra_with_cost: depending on the sign of cost, rotates sa to top or bottom
 	5) ft_rb_with_cost: depending on the sign of cost, rotates sb to top or bottom
 */
 
-int	ft_absolute(int n)
+int	ft_abs(int n)
 {
 	if (n < 0)
 		return (n * (-1));

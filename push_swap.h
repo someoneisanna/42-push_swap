@@ -6,7 +6,7 @@
 /*   By: ataboada <ataboada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 16:24:54 by ataboada          #+#    #+#             */
-/*   Updated: 2023/08/07 16:38:25 by ataboada         ###   ########.fr       */
+/*   Updated: 2023/08/08 17:01:54 by ataboada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	ft_find_and_do_best_move(t_stack **sa, t_stack **sb);
 
 // ------------------------------ 6_sort_utils_1.c -----------------------------
 
-int		ft_absolute(int n);
+int		ft_abs(int n);
 void	ft_rrr_with_cost(t_stack **sa, t_stack **sb, int *cost_a, int *cost_b);
 void	ft_rr_with_cost(t_stack **sa, t_stack **sb, int *cost_a, int *cost_b);
 void	ft_ra_with_cost(t_stack **sa, int *cost);
@@ -80,7 +80,7 @@ int		ft_get_lowest_pos(t_stack **stack);
 
 // --------------------------------- 8_utils.c ---------------------------------
 
-void	ft_perror(char *s, t_stack **sa, t_stack **sb, int ac, char **av);
+void	ft_perror(char *s, int ac, char **av);
 void	ft_free_split(char **split);
 void	ft_free_stack(t_stack **stack);
 int		ft_get_size(t_stack *stack);
@@ -101,4 +101,3 @@ void	ft_sb(t_stack *sb, int p);
 void	ft_ss(t_stack **sa, t_stack **sb);
 
 #endif
-

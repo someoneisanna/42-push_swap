@@ -6,7 +6,7 @@
 /*   By: ataboada <ataboada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 11:19:14 by ataboada          #+#    #+#             */
-/*   Updated: 2023/08/07 16:24:50 by ataboada         ###   ########.fr       */
+/*   Updated: 2023/08/08 16:35:58 by ataboada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,10 +107,10 @@ void	ft_sort_5(t_stack **sa, t_stack **sb)
 }
 
 /*
-	this is the main sort function for stacks of more than 5 numbers (or 4 numbers)
+	this is the main sort function for stacks of more than 5 nbrs (or 4)
 	1) ft_leave_3: pushes everything to sb, but three numbers
 	2) ft_sort_3: sorts the three numbers that were left in sa
-	3) ft_calculate_best_position: calculates the best position for each number in sb
+	3) ft_calculate_best_position: calculates the best pos for each number in sb
 	4) ft_calculate_best_move: calculates the best move for each number in sb
 	5) ft_execute_best_move: executes the best move for each number in sb
 	6) ft_final_sort: sorts the numbers in sa in order

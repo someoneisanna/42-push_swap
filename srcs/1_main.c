@@ -6,7 +6,7 @@
 /*   By: ataboada <ataboada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 09:35:45 by ataboada          #+#    #+#             */
-/*   Updated: 2023/08/07 16:42:17 by ataboada         ###   ########.fr       */
+/*   Updated: 2023/08/08 16:33:53 by ataboada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 	6) finally, we will free all the memory used
 */
 
-int		main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	int			size;
 	t_stack		*stack_a;
